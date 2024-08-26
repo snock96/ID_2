@@ -68,6 +68,23 @@
             item1.style.rotate = '90deg';
             item1.style.transition = '10s';
         })
+
+        // 두번째 사각형 리퀘스트애니메이션 메소드 사용, 지속적인 회전
+        let rotate = 0;
+        function item2Rotate() {
+            item2.style.transform = `rotate(${rotate}deg)`;
+            rotate += .3;
+            requestAnimationFrame(item2Rotate);
+        }
+        item2Rotate()
+
+        // 세번째 사각형 회전, 클릭시 회전
+        let rotate3 = 0;
+        item3.addEventListener('click', function() {
+            rotate3 +=90;
+            item3.style.transform = `rotate(${rotate3}deg)`;
+            item3.style.transition = '2s';
+        }) 
     </script>
 </body>
 </html>
