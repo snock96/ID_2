@@ -73,7 +73,7 @@
         let rotate = 0;
         function item2Rotate() {
             item2.style.transform = `rotate(${rotate}deg)`;
-            rotate += .3;
+            rotate += -3;
             requestAnimationFrame(item2Rotate);
         }
         item2Rotate()
@@ -85,6 +85,23 @@
             item3.style.transform = `rotate(${rotate3}deg)`;
             item3.style.transition = '2s';
         }) 
+
+        // 네번째 사각형 회전, 마우스 올리면 작동, 떠날시멈춤
+        let rotate4 = 0;
+        let item4Req; //변수선언
+
+        item4.addEventListener('mouseover', function() {
+            item4Rotate();
+        })
+        item4.addEventListener('mouseleave', function() {
+            cancelAnimationFrame(item4Req);
+        })
+
+        function item4Rotate() {
+            rotate4 += 1;
+            item4.style.transform = `rotate(${rotate4}deg)`;
+            item4Req = requestAnimationFrame(item4Rotate);
+        }
     </script>
 </body>
 </html>
